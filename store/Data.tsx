@@ -15,6 +15,8 @@ type DataContextObj = {
   setLoginUserName: (userName: string) => void;
   getLoginPassWord: string;
   setLoginPassWord: (passWord: string) => void;
+  openSideBar: boolean;
+  setOpenSideBar: (openSideBar: boolean) => void;
   screenWidth: number;
   screenHeight: number;
   lang: string;
@@ -34,6 +36,8 @@ export const DataContext = React.createContext<DataContextObj>({
   setLoginPassWord: () => {},
   screenWidth: screenWidth,
   screenHeight: screenHeight,
+  openSideBar: false,
+  setOpenSideBar: () => {},
   lang: 'en',
   changeLang: () => {},
   totalExpenditure: 0,
@@ -44,6 +48,7 @@ const DataContextProvider: React.FC<{children: any}> = props => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [appScreen, setAppScreen] = useState<number>(1);
+  const [openSideBar, setOpenSideBar] = useState<boolean>(false);
   const [totalExpenditure, setTotalExpenditure] = useState<number>(0);
   const [totalIncome, setTotalIncome] = useState<number>(0);
   const [lang, setLang] = useState<string>('en');
@@ -111,6 +116,8 @@ const DataContextProvider: React.FC<{children: any}> = props => {
     getLoginPassWord: password,
     setLoginPassWord: setPassword,
     getCurrentScreen: getCurrentScreen,
+    openSideBar: openSideBar,
+    setOpenSideBar: setOpenSideBar,
     screenWidth: screenWidth,
     screenHeight: screenHeight,
     lang: lang,

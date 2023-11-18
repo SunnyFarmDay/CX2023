@@ -32,9 +32,9 @@
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
     }
+    // "updates": {
+    //   "url": "https://u.expo.dev/a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
+    // }
   }
 }

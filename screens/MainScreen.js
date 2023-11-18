@@ -9,6 +9,7 @@ import SettingsScreen from './main/SettingsScreen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { CalendarIcon, ChartBarIcon, HomeIcon, PlusIcon, WrenchIcon } from 'react-native-heroicons/outline';
 import { StringsContext } from '../store/Strings';
+import SideBar from '../components/SideBar';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -40,8 +41,12 @@ function CustomTabBarButton({children, onPress}) {
 const MainScreen = () => {
 
   const Str = useContext(StringsContext)
+  const setOpenSideBar = useContext(DataContext).setOpenSideBar
+  const openSideBar = useContext(DataContext).openSideBar
         
     return (
+        <View style={{flex: 1, position: 'relative'}}>
+        {openSideBar ? <SideBar/> : null}
         <BottomTab.Navigator screenOptions={{
           tabBarShowLabel: false,
           tabBarStyle: {
@@ -103,6 +108,7 @@ const MainScreen = () => {
             ),
           }}/>
         </BottomTab.Navigator>
+        </View>
     );
 };
 
