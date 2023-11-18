@@ -50,7 +50,7 @@ const BadgetSecond = ({type, data}) => {
             style={{
               width: '100%',
               height: 350,
-              backgroundColor: 'rgb(38,92,98)',
+              backgroundColor: 'rgb(71,118,119)',
               marginTop: 5,
               flexDirection: 'row',
               borderBottomLeftRadius: 70,
@@ -104,6 +104,22 @@ const BadgetSecond = ({type, data}) => {
                     {data['number']}
                   </Text>
                 </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: 'white',
+                  margin: 10,
+                  padding: 10,
+                  borderRadius: 20,
+                }}>
+                <Image
+                  source={require('../assets/category/award.png')}
+                  style={{width: 50, height: 50}}
+                />
+                <Text style={{fontSize: 40, marginLeft: 20}}>0/100</Text>
               </View>
             </View>
           </View>

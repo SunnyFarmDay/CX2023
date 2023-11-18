@@ -27,41 +27,20 @@ import {
 import BadgetType_First from '../../components/BadgetType_First';
 import BadgetSecond from '../../components/Badget_Second';
 import {supabase} from './supabase';
+import AsiaMiles from './AsiaMiles';
 
 const CalendarScreen = ({navigation}) => {
   const Data = useContext(DataContext);
   const Str = useContext(StringsContext);
 
-  const [select, setSelect] = useState(0);
   const [rawdata, setRawdata] = useState([]);
   const [userid, setUserid] = useState('');
+  const [select, setSelect] = useState(1);
 
-  function formatTimestamp(timestamp) {
-    const date = new Date(timestamp * 1000);
-    const year = date.getFullYear();
-    const month = `0${date.getMonth() + 1}`.slice(-2);
-    const day = `0${date.getDate()}`.slice(-2);
-    const hours = `0${date.getHours()}`.slice(-2);
-    const minutes = `0${date.getMinutes()}`.slice(-2);
-    const seconds = `0${date.getSeconds()}`.slice(-2);
-    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-  }
-  function checkTimestamp(timestamp, selected) {
-    const date = new Date(selected);
-    const dateTimestamp = date.getTime() / 1000;
-
-    const tsdate = new Date(timestamp * 1000);
-    const tsyear = tsdate.getFullYear();
-    const tsmonth = `0${tsdate.getMonth() + 1}`.slice(-2);
-    const tsday = `0${tsdate.getDate()}`.slice(-2);
-    const tsDate = new Date(tsyear + '-' + tsmonth + '-' + tsday);
-    const tsDateTimestamp = tsDate.getTime() / 1000;
-
-    if (tsDateTimestamp !== dateTimestamp) {
-      return false;
-    }
-    return true;
-  }
+  useEffect(() => {
+    if (select) Data.setBadgeScreen(0);
+    else Data.setBadgeScreen(5);
+  }, [select]);
 
   //------------------------------------------------------------------------
 
@@ -107,11 +86,11 @@ const CalendarScreen = ({navigation}) => {
           style={{
             backgroundColor: 'white',
             height: 100,
-            justifyContent: 'top',
-            alignItems: 'left',
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
             borderBottomWidth: 0.3,
             borderColor: 'grey',
-            marginTop: Platform.OS === 'android' ? 50 : 0,
+            marginTop: 0,
           }}>
           <View
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 15}}>
@@ -131,11 +110,11 @@ const CalendarScreen = ({navigation}) => {
                   case 1:
                     return <Text>Cathay Aircraft</Text>;
                   case 2:
-                    return <Text>Country</Text>;
+                    return <Text>Countries</Text>;
                   case 3:
                     return <Text>Missions</Text>;
                   case 4:
-                    return <Text>Community</Text>;
+                    return <Text>Communities</Text>;
                   default:
                     return null;
                 }
@@ -144,7 +123,9 @@ const CalendarScreen = ({navigation}) => {
             <TouchableOpacity
               style={{marginLeft: 20}}
               onPress={() => {
-                Data.badgeScreen != 0 ? Data.setBadgeScreen(0) : null;
+                Data.badgeScreen != 0
+                  ? Data.setBadgeScreen(0)
+                  : navigation.navigate('Home');
               }}>
               <ChevronLeftIcon color={'black'} size={30} />
             </TouchableOpacity>
@@ -192,6 +173,8 @@ const CalendarScreen = ({navigation}) => {
               return <BadgetSecond type={3} data={rawdata} />;
             case 4:
               return <BadgetSecond type={4} data={rawdata} />;
+            case 5:
+              return <AsiaMiles />;
             default:
               return null;
           }
