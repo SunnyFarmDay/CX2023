@@ -26,12 +26,15 @@ import {
 } from 'react-native-heroicons/outline';
 import BadgetType_First from '../../components/BadgetType_First';
 import BadgetSecond from '../../components/Badget_Second';
+import {supabase} from './supabase';
 
 const CalendarScreen = ({navigation}) => {
   const Data = useContext(DataContext);
   const Str = useContext(StringsContext);
 
   const [select, setSelect] = useState(0);
+  const [rawdata, setRawdata] = useState([]);
+  const [userid, setUserid] = useState('');
 
   function formatTimestamp(timestamp) {
     const date = new Date(timestamp * 1000);
@@ -59,6 +62,43 @@ const CalendarScreen = ({navigation}) => {
     }
     return true;
   }
+
+  //------------------------------------------------------------------------
+
+  async function signInWithEmail() {
+    // setLoading(true);
+    const {data, error} = await supabase.auth.signInWithPassword({
+      email: 'cloudman0341@gmail.com',
+      password: 'a55048980Q',
+    });
+
+    if (error) Alert.alert(error.message);
+    // setLoading(false);
+    // console.log(data);
+    if (data.session) {
+      setUserid(data.user.id);
+      // navigation.navigate('Home');
+    }
+  }
+
+  const fetchData = async () => {
+    // setLoading(true);
+    const {data, error} = await supabase.from('user_detail').select('*');
+    // .eq('userID', userid);
+    // setRawdata(data);
+    if (error) Alert.alert(error.message);
+    // setLoading(false);
+    console.log(data[0]);
+
+    setRawdata(data[0]);
+  };
+
+  useEffect(() => {
+    fetchData();
+    signInWithEmail();
+    console.log('Reloaded!');
+    // getImageFromStorage();
+  }, []);
 
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
@@ -143,15 +183,15 @@ const CalendarScreen = ({navigation}) => {
         {(() => {
           switch (Data.badgeScreen) {
             case 0:
-              return <BadgetType_First />;
+              return <BadgetType_First data={rawdata} />;
             case 1:
-              return <BadgetSecond type={1} />;
+              return <BadgetSecond type={1} data={rawdata} />;
             case 2:
-              return <BadgetSecond type={2} />;
+              return <BadgetSecond type={2} data={rawdata} />;
             case 3:
-              return <BadgetSecond type={3} />;
+              return <BadgetSecond type={3} data={rawdata} />;
             case 4:
-              return <BadgetSecond type={4} />;
+              return <BadgetSecond type={4} data={rawdata} />;
             default:
               return null;
           }
