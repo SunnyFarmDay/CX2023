@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "AppDevTest",
+    "slug": "AppDevTest",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "abf3f447-1a8d-45f3-ae64-49eadaa3f76d"
+      }
+    }
+  },
+  "name": "AppDevTest"
+}
