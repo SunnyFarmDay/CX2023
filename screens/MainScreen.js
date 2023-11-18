@@ -47,6 +47,7 @@ const MainScreen = () => {
     return (
         <View style={{flex: 1, position: 'relative'}}>
         {openSideBar ? <SideBar/> : null}
+        
         <BottomTab.Navigator screenOptions={{
           tabBarShowLabel: false,
           tabBarStyle: {
@@ -57,55 +58,25 @@ const MainScreen = () => {
             backgroundColor: 'white',
             borderRadius: 15,
             height: 90,
+            display: "none",
             ...styles.shadow
           }
         }}>
           <BottomTab.Screen name="Home" component={HomeScreen} options={{
-            headerShown: false,
-            tabBarIcon: ({focused}) => (
-              <View style={{marginTop: 20, alignItems: 'center', flex: 1,width: 100,justifyContent: 'center'}}>
-                <HomeIcon color={focused?'#1e90ff':'#748c94'} size={35}/>
-                <Text style={{color: focused?'#1e90ff':'#748c94', fontSize: 12}}>{Str.main_home.toUpperCase()}</Text>
-              </View>
-            ),
+            headerShown: false
           }}/>
           <BottomTab.Screen name="Calendar" component={CalendarScreen} options={{
             headerShown: false,
-            tabBarIcon: ({focused}) => (
-              <View style={{marginTop: 20, alignItems: 'center', flex: 1,width: 100,justifyContent: 'center'}}>
-                <CalendarIcon color={focused?'#1e90ff':'#748c94'} size={35}/>
-                <Text style={{color: focused?'#1e90ff':'#748c94', fontSize: 12}}>{Str.main_cal.toUpperCase()}</Text>
-              </View>
-            ),
           }}/>
           <BottomTab.Screen name="Record" component={RecordScreen} 
           options={{
-            headerShown: false,
-            tabBarIcon: ({focused}) => (
-              <PlusIcon color={'white'} size={60}/>
-            ),
-            tabBarButton: (props) => (
-              <CustomTabBarButton {...props} />
-            )
-          }}
+            headerShown: false}}
           />
           <BottomTab.Screen name="Trend" component={TrendScreen} options={{
             headerShown: false,
-            tabBarIcon: ({focused}) => (
-              <View style={{marginTop: 20, alignItems: 'center', flex: 1,width: 100,justifyContent: 'center'}}>
-                <ChartBarIcon color={focused?'#1e90ff':'#748c94'} size={35}/>
-                <Text style={{color: focused?'#1e90ff':'#748c94', fontSize: 12}}>{Str.main_trend.toUpperCase()}</Text>
-              </View>
-            ),
           }}/>
           <BottomTab.Screen name="Settings" component={SettingsScreen} options={{
             headerShown: false,
-            tabBarIcon: ({focused}) => (
-              <View style={{marginTop: 20, alignItems: 'center', flex: 1, width: 100,justifyContent: 'center'}}>
-                <WrenchIcon color={focused?'#1e90ff':'#748c94'} size={35}/>
-                <Text style={{color: focused?'#1e90ff':'#748c94', fontSize: 12}}>{Str.main_settings.toUpperCase()}</Text>
-              </View>
-            ),
           }}/>
         </BottomTab.Navigator>
         </View>

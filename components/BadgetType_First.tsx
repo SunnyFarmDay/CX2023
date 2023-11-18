@@ -49,7 +49,7 @@ const BadgetType_First = () => {
           style={{
             width: '100%',
             height: 250,
-            backgroundColor: 'rgb(38,92,98)',
+            backgroundColor: 'rgb(71,118,119)',
             marginTop: 30,
             flexDirection: 'row',
           }}>
@@ -103,7 +103,7 @@ const BadgetType_First = () => {
                     marginLeft: 10,
                     fontSize: 13,
                     color: 'white',
-                    marginBottom: 2,
+                    marginBottom: 3,
                   }}>
                   1234567890
                 </Text>
@@ -119,6 +119,9 @@ const BadgetType_First = () => {
           </View>
         </View>
       </View>
+      <Text style={{marginTop: 15, fontSize: 20, fontWeight: 'bold'}}>
+        Choose a Badge Type
+      </Text>
       <View
         style={{
           width: '90%',
@@ -126,58 +129,55 @@ const BadgetType_First = () => {
           backgroundColor: 'rgb(186,180,163)',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 20,
+          marginTop: 10,
+          marginBottom: 20,
         }}></View>
-      <View style={{flexDirection: 'row', marginTop: 10}}>
-        <TouchableOpacity
-          style={{...style.type}}
-          onPress={() => {
-            Data.setBadgeScreen(1);
-          }}>
-          <Image
-            source={require('../assets/category/plane.png')}
-            style={style.typeLogo}
-          />
-          <Text style={style.typeName}>Cathay Aircraft</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{...style.type}}
-          onPress={() => {
-            Data.setBadgeScreen(2);
-          }}>
-          <Image
-            source={require('../assets/category/country.png')}
-            style={style.typeLogo}
-          />
-          <Text style={style.typeName}>Country</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{flexDirection: 'row', marginTop: 0}}>
-        <TouchableOpacity
-          style={{...style.type}}
-          onPress={() => {
-            Data.setBadgeScreen(3);
-          }}>
-          <Image
-            source={require('../assets/category/mission.webp')}
-            style={style.typeLogo}
-          />
-          <Text style={style.typeName}>Mission</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            ...style.type,
-          }}
-          onPress={() => {
-            Data.setBadgeScreen(4);
-          }}>
-          <Image
-            source={require('../assets/category/community.png')}
-            style={style.typeLogo}
-          />
-          <Text style={style.typeName}>Community</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={{...style.type}}
+        onPress={() => {
+          Data.setBadgeScreen(1);
+        }}>
+        <Image
+          source={require('../assets/category/airplane.png')}
+          style={{...style.typeLogo}}
+        />
+        <Text style={style.typeName}>Cathay Aircraft</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{...style.type}}
+        onPress={() => {
+          Data.setBadgeScreen(2);
+        }}>
+        <Image
+          source={require('../assets/category/countries.png')}
+          style={style.typeLogo}
+        />
+        <Text style={style.typeName}>Countries</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{...style.type}}
+        onPress={() => {
+          Data.setBadgeScreen(3);
+        }}>
+        <Image
+          source={require('../assets/category/mission.png')}
+          style={style.typeLogo}
+        />
+        <Text style={style.typeName}>Missions</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{
+          ...style.type,
+        }}
+        onPress={() => {
+          Data.setBadgeScreen(4);
+        }}>
+        <Image
+          source={require('../assets/category/group.png')}
+          style={style.typeLogo}
+        />
+        <Text style={style.typeName}>Communities</Text>
+      </TouchableOpacity>
       {/* <Toast /> */}
     </View>
   );
@@ -207,8 +207,9 @@ const style = StyleSheet.create({
   },
   typeName: {
     fontWeight: 'bold',
-    fontSize: 15,
-    color: 'rgb(38,92,98)',
+    fontSize: 18,
+    color: 'white',
+    width: '50%',
   },
   logo: {
     width: 250,
@@ -216,19 +217,20 @@ const style = StyleSheet.create({
     resizeMode: 'contain',
   },
   typeLogo: {
-    width: 130,
-    height: 130,
+    width: 50,
+    height: 50,
     resizeMode: 'contain',
-    marginTop: 10,
+    marginRight: 30,
   },
   type: {
-    backgroundColor: 'lightgrey',
-    width: 180,
-    height: 180,
+    backgroundColor: 'rgb(71,118,119)',
+    width: 360,
+    height: 60,
     margin: 10,
-    borderRadius: 30,
+    borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'row',
   },
 });
 

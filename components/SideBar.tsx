@@ -28,8 +28,11 @@ const Sidebar: React.FC<SidebarProps> = ({
   const setOpenSideBar = Data.setOpenSideBar;
   return (
     <View style={styles.container}>
-      <View style={[styles.sidebar, {width, backgroundColor}]}> 
-        <TouchableOpacity style={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}} onPress={() => setOpenSideBar(false)} />
+      <View style={[styles.sidebar, {width, backgroundColor}]}>
+        <TouchableOpacity
+          style={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}}
+          onPress={() => setOpenSideBar(false)}
+        />
       </View>
       <View style={styles.content}>
         <ScrollView
@@ -69,13 +72,35 @@ const Sidebar: React.FC<SidebarProps> = ({
               flexDirection: 'column',
               justifyContent: 'space-between',
               alignItems: 'center',
+              paddingTop: 10,
+              paddingBottom: 10,
             }}
             onPress={() => navigation.navigate('Home')}>
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, position: 'relative'}}>
-            <Image source={require('../assets/CathayLogo.png')} style={{width: 32, aspectRatio: 1 / 1, marginEnd: 15}} resizeMode="cover" />
-            <Text style={{fontSize: 18, fontWeight: 'semibold', color: 'rgba(0,0,0,0.5)', flex: 1}}>Cathay Connect</Text>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: 10,
+                position: 'absolute',
+                marginLeft: 3,
+              }}>
+              <Image
+                source={require('../assets/CathayLogo.png')}
+                style={{width: 36, aspectRatio: 1 / 1, marginEnd: 15}}
+                resizeMode="cover"
+              />
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: 'rgba(0,0,0,0.5)',
+                  flex: 1,
+                  marginLeft: -5,
+                }}>
+                Cathay Connect
+              </Text>
             </View>
-
           </TouchableOpacity>
           <View
             style={{
