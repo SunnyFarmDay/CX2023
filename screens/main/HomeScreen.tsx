@@ -20,6 +20,9 @@ import { Colors } from '../Constants';
 
 import {PieChart} from 'react-native-chart-kit';
 import LinkButton from '../../components/LinkButton';
+
+import { useNavigation } from '@react-navigation/native';
+
 const chartConfig = {
   backgroundGradientFrom: '#1E2923',
   backgroundGradientFromOpacity: 0,
@@ -32,6 +35,7 @@ const chartConfig = {
 };
 
 
+// const navigation = useNavigation();
 
 const HomeScreen = ({navigation}) => {
   const Data = useContext(DataContext);
