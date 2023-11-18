@@ -24,10 +24,12 @@ import {
   ArrowLeftIcon,
   ChevronLeftIcon,
 } from 'react-native-heroicons/outline';
+import {supabase} from '../screens/main/supabase';
 
-const BadgetType_First = () => {
+const BadgetType_First = ({data}) => {
   const Data = useContext(DataContext);
   const Str = useContext(StringsContext);
+  // const firstName = user.map(item => item.firstName);
 
   return (
     <View
@@ -53,13 +55,13 @@ const BadgetType_First = () => {
             marginTop: 30,
             flexDirection: 'row',
           }}>
-          {/* <Text
-                  style={{
-                    color: 'rgb(210, 175, 38)',
-                    fontSize: 30,
-                  }}>
-                  Badges
-                </Text> */}
+          <Text
+            style={{
+              color: 'rgb(210, 175, 38)',
+              fontSize: 30,
+            }}>
+            Badges
+          </Text>
           <View
             style={{
               width: '100%',
@@ -88,7 +90,7 @@ const BadgetType_First = () => {
                   color: 'rgb(186,180,163)',
                   fontWeight: 'bold',
                 }}>
-                Mr. Cathay
+                Mr. {data['firstName']}
               </Text>
               <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
                 <Text
@@ -96,7 +98,7 @@ const BadgetType_First = () => {
                     fontWeight: 'bold',
                     fontSize: 20,
                   }}>
-                  Diamond
+                  {data['Class']}
                 </Text>
                 <Text
                   style={{
@@ -105,7 +107,7 @@ const BadgetType_First = () => {
                     color: 'white',
                     marginBottom: 3,
                   }}>
-                  1234567890
+                  {data['number']}
                 </Text>
               </View>
             </View>
