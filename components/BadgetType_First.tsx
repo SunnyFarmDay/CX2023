@@ -103,7 +103,7 @@ const BadgetType_First = () => {
                     marginLeft: 10,
                     fontSize: 13,
                     color: 'white',
-                    marginBottom: 2,
+                    marginBottom: 3,
                   }}>
                   1234567890
                 </Text>
