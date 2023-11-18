@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "3165Project",
+    "slug": "3165Project",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/icon.png"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "permissions": [
+        "android.permission.INTERNET"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.spentiv.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
+    }
+  }
+}
