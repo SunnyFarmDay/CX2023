@@ -8,7 +8,9 @@ const screenHeight = Dimensions.get('window').height;
 
 type DataContextObj = {
   appScreen: number;
+  badgeScreen: number;
   setScreen: (whichScreen: number) => void;
+  setBadgeScreen: (screen: number) => void;
   getCurrentScreen: () => String;
   getApiHost: string;
   getLoginUserName: string;
@@ -25,7 +27,9 @@ type DataContextObj = {
 
 export const DataContext = React.createContext<DataContextObj>({
   appScreen: 1,
+  badgeScreen: 0,
   setScreen: () => {},
+  setBadgeScreen: () => {},
   getCurrentScreen: () => '',
   getApiHost: '',
   getLoginUserName: '',
@@ -44,6 +48,7 @@ const DataContextProvider: React.FC<{children: any}> = props => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [appScreen, setAppScreen] = useState<number>(1);
+  const [badgeScreen, setBadgeScreen] = useState<number>(0);
   const [totalExpenditure, setTotalExpenditure] = useState<number>(0);
   const [totalIncome, setTotalIncome] = useState<number>(0);
   const [lang, setLang] = useState<string>('en');
@@ -54,6 +59,10 @@ const DataContextProvider: React.FC<{children: any}> = props => {
 
   const setScreen = async (_whichScreen: number) => {
     setAppScreen(_whichScreen);
+  };
+
+  const setBScreen = async (screen: number) => {
+    setBadgeScreen(screen);
   };
 
   const saveLang = async () => {
@@ -104,6 +113,8 @@ const DataContextProvider: React.FC<{children: any}> = props => {
 
   const contextValue: DataContextObj = {
     appScreen: appScreen,
+    badgeScreen: badgeScreen,
+    setBadgeScreen: setBScreen,
     setScreen: setScreen,
     getApiHost: 'https://sehh3165asm2api.10242048.xyz',
     getLoginUserName: userName,
