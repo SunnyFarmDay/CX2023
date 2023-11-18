@@ -21,8 +21,7 @@ import { Colors } from '../Constants';
 import {PieChart} from 'react-native-chart-kit';
 import LinkButton from '../../components/LinkButton';
 
-import { useNavigation } from '@react-navigation/native';
-
+// 
 const chartConfig = {
   backgroundGradientFrom: '#1E2923',
   backgroundGradientFromOpacity: 0,
@@ -35,7 +34,6 @@ const chartConfig = {
 };
 
 
-// const navigation = useNavigation();
 
 const HomeScreen = ({navigation}) => {
   const Data = useContext(DataContext);
@@ -99,7 +97,7 @@ const HomeScreen = ({navigation}) => {
 
                 <View style={{position: 'absolute', top: 510, left: 0, width: '100%', height: 215, backgroundColor: 'white', borderTopColor: 'grey', borderTopWidth: 1, borderBottomColor: 'grey', borderBottomWidth: 1}}>
                 <Text style={{fontSize: 22, fontWeight: 'semibold', color: Colors.cathayGold, position: 'absolute', top: 20, left: 20}}>Cathay Badge</Text>
-                <LinkButton title="More details →" onPress={() => navigation.navigate('Badge')} 
+                <LinkButton title="More details →" onPress={() => navigation.navigate('Calendar')} 
                 styles={{
                   touch: {position: 'absolute', top: 14, left: 275, borderRadius: 10, padding: 10}, 
                   buttonText: {color: Colors.cathayGreen, fontSize: 15, fontWeight: 'semibold'}}}/>
