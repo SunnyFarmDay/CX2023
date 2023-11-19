@@ -27,7 +27,21 @@ import LinkButton from '../../components/LinkButton';
 const BadgeData = [{Type: 'Flight', Subtype: 'A330', Badge: 'Plane', Date: '2023-11-02'},
 {Type: 'Flight', Subtype: 'A330', Badge: 'Plane', Date: '2023-11-02'},
 {Type: 'Mission', Subtype: 'Hong Kong', Badge: 'Location', Date: '2023-11-02'},
-{Type: 'Flight', Subtype: 'A330', Badge: 'Plane', Date: '2023-11-03'}]
+{Type: 'Flight', Subtype: 'A320', Badge: 'Plane', Date: '2023-11-03'},
+{Type: 'Country', Subtype: 'Hong Kong', Badge: 'Country', Date: '2023-11-03'},
+{Type: 'Flight', Subtype: 'A330', Badge: 'Plane', Date: '2023-11-04'},
+{Type: 'Mission', Subtype: 'United Kingdom', Badge: 'Location', Date: '2023-11-04'},
+{Type: 'Flight', Subtype: 'A330', Badge: 'Plane', Date: '2023-11-08'},
+{Type: 'Mission', Subtype: 'Hong Kong', Badge: 'Location', Date: '2023-11-12'},
+{Type: 'Flight', Subtype: 'A321', Badge: 'Plane', Date: '2023-11-13'},
+{Type: 'Mission', Subtype: 'Hong Kong', Badge: 'Location', Date: '2023-11-13'},
+{Type: 'Flight', Subtype: 'A321', Badge: 'Plane', Date: '2023-11-14'},
+{Type: 'Communication', Subtype: 'Posting', Badge: 'Story', Date: '2023-11-14'},
+{Type: 'Communication', Subtype: 'Commenting', Badge: 'Most Liked', Date: '2023-11-14'},
+
+
+
+]
 const chartConfig = {
   backgroundGradientFrom: '#1E2923',
   backgroundGradientFromOpacity: 0,
@@ -314,7 +328,7 @@ const TrendScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
-      <View style={{flexDirection: 'column'}}>
+      <View style={{flexDirection: 'column', position: 'relative'}}>
         <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 15, backgroundColor: 'white', justifyContent: 'center'}}>
             <TouchableOpacity
               style={{marginLeft: 20, position: 'absolute', left: 0}}
@@ -335,6 +349,7 @@ const TrendScreen = ({navigation}) => {
           }}>
           <Text style={{fontSize: 24}}>Milestone</Text>
         </View>
+          <Image source={require('../../assets/Cathay.png')} style={{width: 40, height: 40, aspectRatio: 1 / 1, position: 'absolute', right: 20, top: 0}} />
         </View>
         <View style={{backgroundColor: 'ghostwhite', height: '100%'}}>
           <Toast />

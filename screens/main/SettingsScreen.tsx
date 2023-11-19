@@ -95,10 +95,14 @@ const SettingsScreen = () => {
               Cathay Connect
             </Text>
           </View>
+          <TouchableOpacity style={{position: 'absolute', right: 0, top: 0}} onPress={() => {
+            navigation.navigate('Trend');
+          }}>
           <Image
             source={require('../../assets/CathayLogo.png')}
             style={{height: 40, width: 40, position: 'absolute', right: 25}}
           />
+          </TouchableOpacity>
         </View>
         <View style={{backgroundColor: 'ghostwhite', height: '100%'}}>
           <Toast />
