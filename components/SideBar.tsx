@@ -12,6 +12,7 @@ import {
 import LinkButton from './LinkButton';
 import {Colors} from '../screens/Constants';
 import {DataContext} from '../store/Data';
+import { useNavigation } from '@react-navigation/native';
 
 interface SidebarProps {
   width: number;
@@ -22,10 +23,10 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({
   width,
   backgroundColor,
-  navigation,
 }) => {
   const Data = React.useContext(DataContext);
   const setOpenSideBar = Data.setOpenSideBar;
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={[styles.sidebar, {width, backgroundColor}]}>
@@ -66,8 +67,6 @@ const Sidebar: React.FC<SidebarProps> = ({
               backgroundColor: 'white',
               borderTopColor: 'rgba(0,0,0,0.3)',
               borderTopWidth: 1,
-              borderBottomColor: 'rgba(0,0,0,0.3)',
-              borderBottomWidth: 1,
               flex: 1,
               flexDirection: 'column',
               justifyContent: 'space-between',
@@ -75,7 +74,10 @@ const Sidebar: React.FC<SidebarProps> = ({
               paddingTop: 10,
               paddingBottom: 10,
             }}
-            onPress={() => navigation.navigate('Home')}>
+            onPress={() => {
+                setOpenSideBar(false);
+                navigation.navigate('Settings');
+            }}>
             <View
               style={{
                 flex: 1,
@@ -97,8 +99,57 @@ const Sidebar: React.FC<SidebarProps> = ({
                   color: 'rgba(0,0,0,0.5)',
                   flex: 1,
                   marginLeft: -5,
+                  fontWeight: '300'
                 }}>
                 Cathay Connect
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              position: 'relative',
+              width: '100%',
+              height: 50,
+              backgroundColor: 'white',
+              borderTopColor: 'rgba(0,0,0,0.3)',
+              borderTopWidth: 1,
+              borderBottomColor: 'rgba(0,0,0,0.3)',
+              borderBottomWidth: 1,
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              paddingTop: 10,
+              paddingBottom: 10,
+            }}
+            onPress={() => {
+                setOpenSideBar(false);
+                navigation.navigate('Record');
+            }}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: 10,
+                position: 'absolute',
+                marginLeft: 3,
+              }}>
+              <Image
+                source={require('../assets/CathayLogo.png')}
+                style={{width: 36, aspectRatio: 1 / 1, marginEnd: 15}}
+                resizeMode="cover"
+              />
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: 'rgba(0,0,0,0.5)',
+                  flex: 1,
+                  marginLeft: -5,
+                  fontWeight: '300'
+                }}>
+                Discover events
               </Text>
             </View>
           </TouchableOpacity>

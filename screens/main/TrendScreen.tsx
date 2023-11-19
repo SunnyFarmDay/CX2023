@@ -16,6 +16,7 @@ import {LineChart} from 'react-native-chart-kit';
 import Toast from 'react-native-toast-message';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
+  ChevronLeftIcon,
   ExclamationCircleIcon,
   HandThumbDownIcon,
   HandThumbUpIcon,
@@ -256,7 +257,7 @@ const BadgeSummary = ({Date}) => {
   const month_to_string = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   return (
     <>
-    <View style={{flexDirection: 'row', justifyContent: 'space-between', padding: 20, backgroundColor: 'white'}}>
+    <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingTop: 20, paddingHorizontal: 20, backgroundColor: 'white'}}>
       <Text style={{fontSize: 24}}>
         {month_to_string[month]} {day}
       </Text>
@@ -277,6 +278,11 @@ const BadgeSummary = ({Date}) => {
         }
       }
       />
+    </View>
+    <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingBottom: 20, backgroundColor: 'white'}}>
+      <Text style={{fontSize: 14}}>
+        Badges obtained
+      </Text>
     </View>
     <View style={{backgroundColor: 'white'}}>
       {BadgeData.map((item, index) => {
@@ -309,6 +315,16 @@ const TrendScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
       <View style={{flexDirection: 'column'}}>
+        <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 15, backgroundColor: 'white', justifyContent: 'center'}}>
+            <TouchableOpacity
+              style={{marginLeft: 20, position: 'absolute', left: 0}}
+              onPress={() => {
+                Data.badgeScreen != 0
+                  ? Data.setBadgeScreen(0)
+                  : navigation.navigate('Home');
+              }}>
+              <ChevronLeftIcon color={'black'} size={30} />
+            </TouchableOpacity>
         <View
           style={{
             backgroundColor: 'white',
@@ -318,6 +334,7 @@ const TrendScreen = ({navigation}) => {
             alignItems: 'center',
           }}>
           <Text style={{fontSize: 24}}>Milestone</Text>
+        </View>
         </View>
         <View style={{backgroundColor: 'ghostwhite', height: '100%'}}>
           <Toast />
