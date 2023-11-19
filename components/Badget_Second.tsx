@@ -26,7 +26,7 @@ import {
 } from 'react-native-heroicons/outline';
 import erg from '../erg.json';
 
-const BadgetSecond = ({type}) => {
+const BadgetSecond = ({type, data}) => {
   const Data = useContext(DataContext);
   const Str = useContext(StringsContext);
 
@@ -85,7 +85,7 @@ const BadgetSecond = ({type}) => {
                     color: 'rgb(186,180,163)',
                     fontWeight: 'bold',
                   }}>
-                  Mr. Cathay
+                  Mr. {data['firstName']}
                 </Text>
                 <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
                   <Text
@@ -93,7 +93,7 @@ const BadgetSecond = ({type}) => {
                       fontWeight: 'bold',
                       fontSize: 20,
                     }}>
-                    Diamond
+                    {data['Class']}
                   </Text>
                   <Text
                     style={{
@@ -101,7 +101,7 @@ const BadgetSecond = ({type}) => {
                       fontSize: 20,
                       color: 'white',
                     }}>
-                    1234567890
+                    {data['number']}
                   </Text>
                 </View>
               </View>

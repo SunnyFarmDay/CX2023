@@ -26,6 +26,7 @@ import {
 } from 'react-native-heroicons/outline';
 import BadgetType_First from '../../components/BadgetType_First';
 import BadgetSecond from '../../components/Badget_Second';
+import {supabase} from './supabase';
 import AsiaMiles from './AsiaMiles';
 import BadgeThird from '../../components/Badge_Third';
 
@@ -33,6 +34,8 @@ const CalendarScreen = ({navigation}) => {
   const Data = useContext(DataContext);
   const Str = useContext(StringsContext);
 
+  const [rawdata, setRawdata] = useState([]);
+  const [userid, setUserid] = useState('');
   const [select, setSelect] = useState(1);
 
   useEffect(() => {
@@ -44,6 +47,43 @@ const CalendarScreen = ({navigation}) => {
     if (select) Data.setBadgeScreen(0);
     else Data.setBadgeScreen(5);
   }, [select]);
+
+  //------------------------------------------------------------------------
+
+  async function signInWithEmail() {
+    // setLoading(true);
+    const {data, error} = await supabase.auth.signInWithPassword({
+      email: 'cloudman0341@gmail.com',
+      password: 'a55048980Q',
+    });
+
+    if (error) Alert.alert(error.message);
+    // setLoading(false);
+    // console.log(data);
+    if (data.session) {
+      setUserid(data.user.id);
+      // navigation.navigate('Home');
+    }
+  }
+
+  const fetchData = async () => {
+    // setLoading(true);
+    const {data, error} = await supabase.from('user_detail').select('*');
+    // .eq('userID', userid);
+    // setRawdata(data);
+    if (error) Alert.alert(error.message);
+    // setLoading(false);
+    console.log(data[0]);
+
+    setRawdata(data[0]);
+  };
+
+  useEffect(() => {
+    fetchData();
+    signInWithEmail();
+    console.log('Reloaded!');
+    // getImageFromStorage();
+  }, []);
 
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
@@ -130,15 +170,15 @@ const CalendarScreen = ({navigation}) => {
         {(() => {
           switch (Data.badgeScreen) {
             case 0:
-              return <BadgetType_First />;
+              return <BadgetType_First data={rawdata} />;
             case 1:
-              return <BadgetSecond type={1} />;
+              return <BadgetSecond type={1} data={rawdata} />;
             case 2:
-              return <BadgetSecond type={2} />;
+              return <BadgetSecond type={2} data={rawdata} />;
             case 3:
-              return <BadgetSecond type={3} />;
+              return <BadgetSecond type={3} data={rawdata} />;
             case 4:
-              return <BadgetSecond type={4} />;
+              return <BadgetSecond type={4} data={rawdata} />;
             case 5:
               return <AsiaMiles />;
             case 6:
