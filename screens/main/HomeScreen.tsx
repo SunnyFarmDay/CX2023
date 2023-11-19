@@ -138,7 +138,10 @@ const HomeScreen = ({navigation}) => {
                 </Text>
                 <LinkButton
                   title="More details →"
-                  onPress={() => navigation.navigate('Calendar')}
+                  onPress={() => {
+                    navigation.navigate('Calendar');
+                    Data.setBadgeScreen(0);
+                  }}
                   styles={{
                     touch: {
                       position: 'absolute',

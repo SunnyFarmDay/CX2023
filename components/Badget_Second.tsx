@@ -24,7 +24,7 @@ import {
   ArrowLeftIcon,
   ChevronLeftIcon,
 } from 'react-native-heroicons/outline';
-import BadgetType_First from './BadgetType_First';
+import erg from '../erg.json';
 
 const BadgetSecond = ({type}) => {
   const Data = useContext(DataContext);
@@ -117,14 +117,260 @@ const BadgetSecond = ({type}) => {
                 }}>
                 <Image
                   source={require('../assets/category/award.png')}
-                  style={{width: 50, height: 50}}
+                  style={{width: 50, height: 50, marginLeft: 5}}
                 />
-                <Text style={{fontSize: 40, marginLeft: 20}}>0/100</Text>
+                <Text
+                  style={{fontSize: 40, marginLeft: 20, fontWeight: 'bold'}}>
+                  0/100
+                </Text>
               </View>
             </View>
           </View>
         </View>
-        <ScrollView></ScrollView>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '90%',
+            margin: 40,
+          }}>
+          <TouchableOpacity
+            style={{
+              width: '50%',
+              height: 50,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              margin: 5,
+            }}
+            onPress={() => {
+              Data.badgeScreen == 1
+                ? Data.setBadgeScreen(6)
+                : Data.badgeScreen == 2
+                ? Data.setBadgeScreen(10)
+                : Data.badgeScreen == 3
+                ? Data.setBadgeScreen(14)
+                : console.log('');
+            }}>
+            <Text>{erg[0].airplane}</Text>
+            <Image
+              source={
+                Data.badgeScreen == 1
+                  ? require('../assets/category/airplane1.png')
+                  : Data.badgeScreen == 2
+                  ? require('../assets/category/japan.png')
+                  : Data.badgeScreen == 3
+                  ? require('../assets/category/invitefriends.jpg')
+                  : require('../assets/category/airplane1.png')
+              }
+              style={
+                Data.badgeScreen == 1
+                  ? {width: '100%', height: '100%', padding: 5}
+                  : Data.badgeScreen == 2
+                  ? {
+                      width: '40%',
+                      height: '100%',
+                      padding: 5,
+                      alignSelf: 'center',
+                      marginVertical: '5%',
+                    }
+                  : Data.badgeScreen == 3
+                  ? {
+                      width: '100%',
+                      height: '100%',
+                      padding: 5,
+                      resizeMode: 'center',
+                    }
+                  : {width: '100%', height: '100%', padding: 5}
+              }
+            />
+            <View
+              style={{
+                backgroundColor: 'rgb(186,180,163)',
+                width: '100%',
+                height: 30,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontWeight: 'bold'}}>
+                {erg[0].get}/{erg[0].total}
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              width: '50%',
+              height: 50,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              margin: 5,
+            }}
+            onPress={() => {
+              Data.setBadgeScreen(7);
+            }}>
+            <Text>{erg[1].airplane}</Text>
+            <Image
+              source={
+                Data.badgeScreen == 1
+                  ? require('../assets/category/airplane1.png')
+                  : Data.badgeScreen == 2
+                  ? require('../assets/category/korean.jpg')
+                  : Data.badgeScreen == 3
+                  ? require('../assets/category/carbonemission.jpg')
+                  : require('../assets/category/airplane1.png')
+              }
+              style={
+                Data.badgeScreen == 1
+                  ? {width: '100%', height: '100%', padding: 5}
+                  : Data.badgeScreen == 2
+                  ? {
+                      width: '40%',
+                      height: '100%',
+                      padding: 5,
+                      alignSelf: 'center',
+                      marginVertical: '5%',
+                    }
+                  : Data.badgeScreen == 3
+                  ? {
+                      width: '100%',
+                      height: '110%',
+                      padding: 5,
+                      resizeMode: 'contain',
+                    }
+                  : {width: '100%', height: '100%', padding: 5}
+              }
+            />
+            <View
+              style={{
+                backgroundColor: 'rgb(186,180,163)',
+                width: '100%',
+                height: 30,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontWeight: 'bold'}}>
+                {erg[1].get}/{erg[1].total}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            width: '90%',
+            margin: 40,
+          }}>
+          <TouchableOpacity
+            style={{
+              width: '50%',
+              height: 50,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              margin: 5,
+            }}
+            onPress={() => {
+              Data.setBadgeScreen(8);
+            }}>
+            <Text>{erg[2].airplane}</Text>
+            <Image
+              source={
+                Data.badgeScreen == 1
+                  ? require('../assets/category/airplane1.png')
+                  : Data.badgeScreen == 2
+                  ? require('../assets/category/india.png')
+                  : Data.badgeScreen == 3
+                  ? require('../assets/category/active.jpg')
+                  : require('../assets/category/airplane1.png')
+              }
+              style={
+                Data.badgeScreen == 1
+                  ? {width: '100%', height: '100%', padding: 5}
+                  : Data.badgeScreen == 2
+                  ? {
+                      width: '40%',
+                      height: '100%',
+                      padding: 5,
+                      alignSelf: 'center',
+                      marginVertical: '5%',
+                    }
+                  : Data.badgeScreen == 3
+                  ? {width: '100%', height: '100%', padding: 5}
+                  : {width: '100%', height: '100%', padding: 5}
+              }
+            />
+            <View
+              style={{
+                backgroundColor: 'rgb(186,180,163)',
+                width: '100%',
+                height: 30,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontWeight: 'bold'}}>
+                {erg[2].get}/{erg[2].total}
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              width: '50%',
+              height: 50,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              margin: 5,
+            }}
+            onPress={() => {
+              Data.setBadgeScreen(9);
+            }}>
+            <Text>{erg[3].airplane}</Text>
+            <Image
+              source={
+                Data.badgeScreen == 1
+                  ? require('../assets/category/airplane1.png')
+                  : Data.badgeScreen == 2
+                  ? require('../assets/category/usa.png')
+                  : Data.badgeScreen == 3
+                  ? require('../assets/category/airplane1.png')
+                  : require('../assets/category/airplane1.png')
+              }
+              style={
+                Data.badgeScreen == 1
+                  ? {width: '100%', height: '100%', padding: 5}
+                  : Data.badgeScreen == 2
+                  ? {
+                      width: '40%',
+                      height: '100%',
+                      padding: 5,
+                      alignSelf: 'center',
+                      marginVertical: '5%',
+                    }
+                  : Data.badgeScreen == 3
+                  ? {width: '100%', height: '100%', padding: 5}
+                  : {width: '100%', height: '100%', padding: 5}
+              }
+            />
+
+            <View
+              style={{
+                backgroundColor: 'rgb(186,180,163)',
+                width: '100%',
+                height: 30,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Text style={{fontWeight: 'bold'}}>
+                {erg[3].get}/{erg[3].total}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
         {/* <Toast /> */}
       </View>
     </ScrollView>

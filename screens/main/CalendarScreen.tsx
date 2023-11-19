@@ -27,12 +27,18 @@ import {
 import BadgetType_First from '../../components/BadgetType_First';
 import BadgetSecond from '../../components/Badget_Second';
 import AsiaMiles from './AsiaMiles';
+import BadgeThird from '../../components/Badge_Third';
 
 const CalendarScreen = ({navigation}) => {
   const Data = useContext(DataContext);
   const Str = useContext(StringsContext);
 
   const [select, setSelect] = useState(1);
+
+  useEffect(() => {
+    setSelect(1);
+    Data.setBadgeScreen(1);
+  }, []);
 
   useEffect(() => {
     if (select) Data.setBadgeScreen(0);
@@ -83,7 +89,7 @@ const CalendarScreen = ({navigation}) => {
             <TouchableOpacity
               style={{marginLeft: 20}}
               onPress={() => {
-                Data.badgeScreen != 0
+                Data.badgeScreen != 0 && Data.badgeScreen != 5
                   ? Data.setBadgeScreen(0)
                   : navigation.navigate('Home');
               }}>
@@ -135,6 +141,31 @@ const CalendarScreen = ({navigation}) => {
               return <BadgetSecond type={4} />;
             case 5:
               return <AsiaMiles />;
+            case 6:
+              return <BadgeThird maintype={1} subtypeID={1} />;
+            case 7:
+              return <BadgeThird maintype={1} subtypeID={2} />;
+            case 8:
+              return <BadgeThird maintype={1} subtypeID={3} />;
+            case 9:
+              return <BadgeThird maintype={1} subtypeID={4} />;
+            case 10:
+              return <BadgeThird maintype={2} subtypeID={1} />;
+            case 11:
+              return <BadgeThird maintype={2} subtypeID={2} />;
+            case 12:
+              return <BadgeThird maintype={2} subtypeID={3} />;
+            case 13:
+              return <BadgeThird maintype={2} subtypeID={4} />;
+            case 14:
+              return <BadgeThird maintype={3} subtypeID={1} />;
+            case 15:
+              return <BadgeThird maintype={3} subtypeID={2} />;
+            case 16:
+              return <BadgeThird maintype={3} subtypeID={3} />;
+            case 17:
+              return <BadgeThird maintype={3} subtypeID={1} />;
+
             default:
               return null;
           }
