@@ -168,6 +168,7 @@ const BadgetType_First = ({data}) => {
         <Text style={style.typeName}>Missions</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        disabled={true}
         style={{
           ...style.type,
         }}

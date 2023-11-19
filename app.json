@@ -9,16 +9,12 @@
     "splash": {
       "image": "./assets/icon.png"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": false
     },
     "android": {
-      "permissions": [
-        "android.permission.INTERNET"
-      ],
+      "permissions": ["android.permission.INTERNET"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
@@ -30,11 +26,11 @@
         "projectId": "a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
       }
     },
-    "runtimeVersion": {
+    "runtimeV,ersion": {
       "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
     }
-    // "updates": {
-    //   "url": "https://u.expo.dev/a3f7c0c0-b8f7-465b-97f7-b4fdf3ad2b21"
-    // }
   }
 }

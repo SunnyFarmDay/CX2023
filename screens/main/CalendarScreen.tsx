@@ -94,11 +94,20 @@ const CalendarScreen = ({navigation}) => {
             borderBottomWidth: 0.3,
             borderColor: 'grey',
             marginTop: 0,
-            position: 'relative'
+            position: 'relative',
           }}>
           <View
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 15}}>
-              <Image source={require('../../assets/Cathay.png')}  style={{width: 40, height: 40, marginEnd: 15, position: 'absolute', left: 350}} />
+            <Image
+              source={require('../../assets/Cathay.png')}
+              style={{
+                width: 40,
+                height: 40,
+                marginEnd: 15,
+                position: 'absolute',
+                left: 350,
+              }}
+            />
             <Text
               style={{
                 fontSize: 22,
@@ -125,7 +134,7 @@ const CalendarScreen = ({navigation}) => {
                 }
               })()}
             </Text>
-            
+
             <TouchableOpacity
               style={{marginLeft: 20}}
               onPress={() => {
@@ -182,29 +191,29 @@ const CalendarScreen = ({navigation}) => {
             case 5:
               return <AsiaMiles />;
             case 6:
-              return <BadgeThird maintype={1} subtypeID={1} />;
+              return <BadgeThird subtypeID={1} />;
             case 7:
-              return <BadgeThird maintype={1} subtypeID={2} />;
+              return <BadgeThird subtypeID={2} />;
             case 8:
-              return <BadgeThird maintype={1} subtypeID={3} />;
+              return <BadgeThird subtypeID={3} />;
             case 9:
-              return <BadgeThird maintype={1} subtypeID={4} />;
+              return <BadgeThird subtypeID={4} />;
             case 10:
-              return <BadgeThird maintype={2} subtypeID={1} />;
+              return <BadgeThird subtypeID={1} />;
             case 11:
-              return <BadgeThird maintype={2} subtypeID={2} />;
+              return <BadgeThird subtypeID={2} />;
             case 12:
-              return <BadgeThird maintype={2} subtypeID={3} />;
+              return <BadgeThird subtypeID={3} />;
             case 13:
-              return <BadgeThird maintype={2} subtypeID={4} />;
+              return <BadgeThird subtypeID={4} />;
             case 14:
-              return <BadgeThird maintype={3} subtypeID={1} />;
+              return <BadgeThird subtypeID={1} />;
             case 15:
-              return <BadgeThird maintype={3} subtypeID={2} />;
+              return <BadgeThird subtypeID={2} />;
             case 16:
-              return <BadgeThird maintype={3} subtypeID={3} />;
+              return <BadgeThird subtypeID={3} />;
             case 17:
-              return <BadgeThird maintype={3} subtypeID={1} />;
+              return <BadgeThird subtypeID={1} />;
 
             default:
               return null;

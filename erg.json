@@ -1,14 +1,14 @@
 [
-    {"airplane": "Airbus A321neo", "get": 0, "total" : 100},
-    {"airplane": "Airbus A3330", "get": 0, "total" : 100},
-    {"airplane": "Airbus A350", "get": 0, "total" : 100},
-    {"airplane": "Boeing 777", "get": 0, "total" : 100},
-    {"coun": "Japan", "get": 0, "total" : 100},
-    {"coun": "Korean", "get": 0, "total" : 100},
-    {"coun": "India", "get": 0, "total" : 100},
-    {"coun": "India", "get": 0, "total" : 100},
-    {"mission": "Carbon Emission", "get": 0, "total" : 100},
-    {"mission": "Invite Friends", "get": 0, "total" : 100},
-    {"mission": "Keep Connect", "get": 0, "total" : 100},
-    {"mission": "Special Miles", "get": 0, "total" : 100}
+  {"airplane": "Airbus 3450neo", "get": 4, "total": 100},
+  {"airplane": "Airbus 3430", "get": 32, "total": 100},
+  {"airplane": "Airbus 3450", "get": 21, "total": 100},
+  {"airplane": "Boeing 777", "get": 0, "total": 100},
+  {"coun": "Japan", "get": 0, "total": 100},
+  {"coun": "Korean", "get": 0, "total": 100},
+  {"coun": "India", "get": 0, "total": 100},
+  {"coun": "India", "get": 0, "total": 100},
+  {"mission": "Invite Friends", "get": 0, "total": 100},
+  {"mission": "Carbon Emission", "get": 0, "total": 100},
+  {"mission": "Keep Connect", "get": 0, "total": 100},
+  {"mission": "Special Miles", "get": 0, "total": 100}
 ]

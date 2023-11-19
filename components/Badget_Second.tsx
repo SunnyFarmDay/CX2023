@@ -121,7 +121,7 @@ const BadgetSecond = ({type, data}) => {
                 />
                 <Text
                   style={{fontSize: 40, marginLeft: 20, fontWeight: 'bold'}}>
-                  0/100
+                  17/100
                 </Text>
               </View>
             </View>
@@ -132,7 +132,7 @@ const BadgetSecond = ({type, data}) => {
           style={{
             flexDirection: 'row',
             width: '90%',
-            margin: 40,
+            margin: 60,
           }}>
           <TouchableOpacity
             style={{
@@ -151,7 +151,15 @@ const BadgetSecond = ({type, data}) => {
                 ? Data.setBadgeScreen(14)
                 : console.log('');
             }}>
-            <Text>{erg[0].airplane}</Text>
+            <Text style={{fontSize: 20}}>
+              {Data.badgeScreen == 1
+                ? erg[0].airplane
+                : Data.badgeScreen == 2
+                ? erg[4].coun
+                : Data.badgeScreen == 3
+                ? erg[8].mission
+                : ''}
+            </Text>
             <Image
               source={
                 Data.badgeScreen == 1
@@ -174,12 +182,7 @@ const BadgetSecond = ({type, data}) => {
                       marginVertical: '5%',
                     }
                   : Data.badgeScreen == 3
-                  ? {
-                      width: '100%',
-                      height: '100%',
-                      padding: 5,
-                      resizeMode: 'center',
-                    }
+                  ? {width: 190, height: 100, padding: 20, resizeMode: 'center'}
                   : {width: '100%', height: '100%', padding: 5}
               }
             />
@@ -209,7 +212,15 @@ const BadgetSecond = ({type, data}) => {
             onPress={() => {
               Data.setBadgeScreen(7);
             }}>
-            <Text>{erg[1].airplane}</Text>
+            <Text style={{fontSize: 20}}>
+              {Data.badgeScreen == 1
+                ? erg[1].airplane
+                : Data.badgeScreen == 2
+                ? erg[5].coun
+                : Data.badgeScreen == 3
+                ? erg[9].mission
+                : ''}
+            </Text>
             <Image
               source={
                 Data.badgeScreen == 1
@@ -232,12 +243,7 @@ const BadgetSecond = ({type, data}) => {
                       marginVertical: '5%',
                     }
                   : Data.badgeScreen == 3
-                  ? {
-                      width: '100%',
-                      height: '110%',
-                      padding: 5,
-                      resizeMode: 'contain',
-                    }
+                  ? {width: 190, height: 100, padding: 5}
                   : {width: '100%', height: '100%', padding: 5}
               }
             />
@@ -274,7 +280,15 @@ const BadgetSecond = ({type, data}) => {
             onPress={() => {
               Data.setBadgeScreen(8);
             }}>
-            <Text>{erg[2].airplane}</Text>
+            <Text style={{fontSize: 20}}>
+              {Data.badgeScreen == 1
+                ? erg[2].airplane
+                : Data.badgeScreen == 2
+                ? erg[6].coun
+                : Data.badgeScreen == 3
+                ? erg[10].mission
+                : ''}
+            </Text>
             <Image
               source={
                 Data.badgeScreen == 1
@@ -297,8 +311,8 @@ const BadgetSecond = ({type, data}) => {
                       marginVertical: '5%',
                     }
                   : Data.badgeScreen == 3
-                  ? {width: '100%', height: '100%', padding: 5}
-                  : {width: '100%', height: '100%', padding: 5}
+                  ? {width: 190, height: 100, padding: 5}
+                  : {width: 190, height: 100, padding: 5}
               }
             />
             <View
@@ -312,60 +326,6 @@ const BadgetSecond = ({type, data}) => {
               }}>
               <Text style={{fontWeight: 'bold'}}>
                 {erg[2].get}/{erg[2].total}
-              </Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-              width: '50%',
-              height: 50,
-              flexDirection: 'column',
-              justifyContent: 'center',
-              margin: 5,
-            }}
-            onPress={() => {
-              Data.setBadgeScreen(9);
-            }}>
-            <Text>{erg[3].airplane}</Text>
-            <Image
-              source={
-                Data.badgeScreen == 1
-                  ? require('../assets/category/airplane1.png')
-                  : Data.badgeScreen == 2
-                  ? require('../assets/category/usa.png')
-                  : Data.badgeScreen == 3
-                  ? require('../assets/category/airplane1.png')
-                  : require('../assets/category/airplane1.png')
-              }
-              style={
-                Data.badgeScreen == 1
-                  ? {width: '100%', height: '100%', padding: 5}
-                  : Data.badgeScreen == 2
-                  ? {
-                      width: '40%',
-                      height: '100%',
-                      padding: 5,
-                      alignSelf: 'center',
-                      marginVertical: '5%',
-                    }
-                  : Data.badgeScreen == 3
-                  ? {width: '100%', height: '100%', padding: 5}
-                  : {width: '100%', height: '100%', padding: 5}
-              }
-            />
-
-            <View
-              style={{
-                backgroundColor: 'rgb(186,180,163)',
-                width: '100%',
-                height: 30,
-                borderRadius: 10,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Text style={{fontWeight: 'bold'}}>
-                {erg[3].get}/{erg[3].total}
               </Text>
             </View>
           </TouchableOpacity>
