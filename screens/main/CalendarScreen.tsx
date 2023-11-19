@@ -2,12 +2,9 @@ import {
   View,
   Text,
   SafeAreaView,
-  ScrollView,
-  Platform,
   Image,
   TouchableOpacity,
   StyleSheet,
-  Pressable,
   Alert,
 } from 'react-native';
 import React, {useContext, useEffect, useState} from 'react';
@@ -97,9 +94,11 @@ const CalendarScreen = ({navigation}) => {
             borderBottomWidth: 0.3,
             borderColor: 'grey',
             marginTop: 0,
+            position: 'relative'
           }}>
           <View
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 15}}>
+              <Image source={require('../../assets/Cathay.png')}  style={{width: 40, height: 40, marginEnd: 15, position: 'absolute', left: 350}} />
             <Text
               style={{
                 fontSize: 22,
@@ -122,10 +121,11 @@ const CalendarScreen = ({navigation}) => {
                   case 4:
                     return <Text>Communities</Text>;
                   default:
-                    return null;
+                    return;
                 }
               })()}
             </Text>
+            
             <TouchableOpacity
               style={{marginLeft: 20}}
               onPress={() => {
